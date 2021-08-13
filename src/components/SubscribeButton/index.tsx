@@ -5,11 +5,7 @@ import { api } from '../../services/api';
 import { getStripJs } from '../../services/stripe-js';
 import styles from './styles.module.scss';
 
-interface SubscribeButtonProps {
-    priceId: string;
-}
-
-export function SubscribeButton({ priceId }: SubscribeButtonProps) {
+export function SubscribeButton() {
 
     const [session] = useSession();
     const router = useRouter();
@@ -20,7 +16,7 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
             return;
         }
 
-        if(session.activeSubscription) {
+        if (session.activeSubscription) {
             router.push('/posts');
             return;
         }
